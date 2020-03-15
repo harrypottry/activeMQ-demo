@@ -13,7 +13,7 @@ public class JMSQueueListenerProducer {
     public static void main(String[] args) {
         ConnectionFactory connectionFactory=
                 new ActiveMQConnectionFactory
-                        ("tcp://192.168.11.153:61616");
+                        ("tcp://192.168.200.111:61616");
         Connection connection=null;
         try {
 

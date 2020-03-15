@@ -12,7 +12,7 @@ public class JMSQueueProducer {
     public static void main(String[] args) {
         ConnectionFactory connectionFactory=
                 new ActiveMQConnectionFactory
-                        ("tcp://192.168.11.153:61616");
+                        ("tcp://192.168.200.111:61616");
         Connection connection=null;
         try {
 
@@ -31,6 +31,7 @@ public class JMSQueueProducer {
             for(int i=0;i<10;i++) {
                 //创建需要发送的消息
                 TextMessage message = session.createTextMessage("Hello World:"+i);
+                message.setStringProperty("test","this is a activeMQ Producer");
                 //Text   Map  Bytes  Stream  Object
                 producer.send(message);
             }

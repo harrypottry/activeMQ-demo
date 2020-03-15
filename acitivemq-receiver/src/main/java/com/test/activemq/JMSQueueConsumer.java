@@ -12,7 +12,7 @@ public class JMSQueueConsumer {
     public static void main(String[] args) {
         ConnectionFactory connectionFactory=
                 new ActiveMQConnectionFactory
-                        ("tcp://192.168.11.153:61616");
+                        ("tcp://192.168.200.111:61616");
         Connection connection=null;
         try {
 
@@ -28,7 +28,7 @@ public class JMSQueueConsumer {
             for(int i=0;i<10;i++) {
                 TextMessage textMessage = (TextMessage) consumer.receive();
                 System.out.println(textMessage.getText());
-                if(i==8) {
+                if(i==5) {
                     textMessage.acknowledge();
                 }
             }

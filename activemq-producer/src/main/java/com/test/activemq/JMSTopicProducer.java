@@ -12,7 +12,7 @@ public class JMSTopicProducer {
     public static void main(String[] args) {
         ConnectionFactory connectionFactory=
                 new ActiveMQConnectionFactory
-                        ("tcp://192.168.11.153:61616");
+                        ("tcp://192.168.200.111:61616");
         Connection connection=null;
         try {
 
@@ -27,7 +27,7 @@ public class JMSTopicProducer {
             producer.setDeliveryMode(DeliveryMode.PERSISTENT);
 
             //创建需要发送的消息
-            TextMessage message=session.createTextMessage("vip的上课时间是：周三、周六、周日");
+            TextMessage message=session.createTextMessage("send some messages");
 
             //Text   Map  Bytes  Stream  Object
 

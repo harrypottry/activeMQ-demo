@@ -3,6 +3,7 @@ package com.test.activemq;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 import javax.jms.*;
+import java.util.Enumeration;
 
 /**
  * @author harrypotter
@@ -12,12 +13,12 @@ public class JMSPersistentTopicConsumer {
     public static void main(String[] args) {
         ConnectionFactory connectionFactory=
                 new ActiveMQConnectionFactory
-                        ("tcp://192.168.11.153:61616");
+                        ("tcp://192.168.200.111:61616");
         Connection connection=null;
         try {
 
             connection=connectionFactory.createConnection();
-            connection.setClientID("Mic-001");
+            connection.setClientID("test");
 
             connection.start();
 
@@ -26,7 +27,7 @@ public class JMSPersistentTopicConsumer {
             //创建目的地
             Topic destination=session.createTopic("myTopic");
             //创建发送者
-            MessageConsumer consumer=session.createDurableSubscriber(destination,"Mic-001");
+            MessageConsumer consumer=session.createDurableSubscriber(destination,"test");
 
             TextMessage textMessage=(TextMessage) consumer.receive();
             System.out.println(textMessage.getText());
